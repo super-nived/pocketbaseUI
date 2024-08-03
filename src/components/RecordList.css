@@ -1,0 +1,141 @@
+.main-content {
+ padding: 10px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+  }
+  .header_left{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2rem;
+  }
+
+  .header_left svg{
+    font-weight: 600;
+  }
+  .header_right{
+
+  }
+
+  .header h2 {
+    color: #a0a6ac;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .collection_title{
+    color: #000;
+    margin-left: 10px;
+  }
+  
+  .new-record-button {
+    padding: .7rem 2rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /* height: 2rem; */
+  }
+  
+  .new-record-button:hover {
+    background-color: #333;
+  }
+
+
+
+.search_box_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0  2rem 2rem 2rem;
+    height: 3rem;
+
+}
+
+
+  .search-term-box {
+    --searchHeight: 44px;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 40px;
+    padding: 5px 7px;
+    margin: 0;
+    white-space: nowrap;
+    color: #666f75;
+    background: #e4e9ec;
+    border-radius: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 15px;
+    gap: 8px;
+  }
+  .search_icons{
+    color: #666f75;
+  }
+  .search-term-box input {
+    width: 90%;
+    border: none;
+    background: transparent;
+    outline: none;
+  }
+  
+  .table-container {
+    display: flex;
+    justify-content:start;
+    align-items: start;
+    min-height: 50vh;
+    overflow-x: scroll;
+    border-radius: 4px; 
+    width: 100%;
+  }
+  
+  .data-table {
+    width: 100%;
+    height: 1rem;
+    overflow: scroll;
+    height: 100%;
+  }
+  
+  .data-table th, .data-table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .data-table th {
+    background-color: #f3f4f6;
+    color: #6b7280;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .data-table tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .data-table tbody tr:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .data-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .total-found {
+    padding: 12px;
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+   

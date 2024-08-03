@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { SelectedCollectionProvider } from './store/SelectedCollectionContext';
 
+const queryClinet = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <QueryClientProvider client={queryClinet}>
+    <SelectedCollectionProvider>
     <App />
+    </SelectedCollectionProvider>
+  </QueryClientProvider>
   </React.StrictMode>
 );
 
