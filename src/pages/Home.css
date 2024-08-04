@@ -12,7 +12,9 @@ body {
     display: grid;
     grid-template-columns:20% 80%;
     overflow: hidden;
-
   }
   
+  .container::-webkit-scrollbar{
+    display: none;
+  }
   

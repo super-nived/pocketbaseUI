@@ -1,6 +1,9 @@
 .main-content {
- padding: 10px;
-  }
+  padding: 10px;
+  height: 100vh;
+}
+
+
   
   .header {
     display: flex;
@@ -90,38 +93,106 @@
     background: transparent;
     outline: none;
   }
+  .table-container {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    min-height: 50vh;
+    height: calc(100vh - 40%);
+    overflow: scroll;
+    border-radius: 4px; 
+    width: 100%;
+
+  }
   
   .table-container {
     display: flex;
-    justify-content:start;
+    justify-content: start;
     align-items: start;
     min-height: 50vh;
-    overflow-x: scroll;
+    height: calc(100vh - 40%);
+    overflow: scroll;
     border-radius: 4px; 
     width: 100%;
   }
   
+  /* Style for Webkit browsers */
+  .table-container::-webkit-scrollbar {
+    width: 5px;  /* Thickness for vertical scrollbar */
+    height: 5px; /* Thickness for horizontal scrollbar */
+  }
+  
+  /* Track */
+  .table-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 5px;
+  }
+  
+  /* Handle */
+  .table-container::-webkit-scrollbar-thumb {
+    background: #666f75; 
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #666f75; 
+  }
+  
   .data-table {
     width: 100%;
-    height: 1rem;
-    overflow: scroll;
-    height: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
   }
   
-  .data-table th, .data-table td {
-    padding: 12px;
-    text-align: left;
+  .data-table th input{
+
+    background: white;
+    border: 2px solid #8989d2 ;
+    min-height: 20px;
+    font-weight: 400;
+    font-size: 14.5px;
+    text-transform: none;
+    color: #8989d2;
   }
-  
-  .data-table th {
-    background-color: #f3f4f6;
-    color: #6b7280;
+   .data-table th {
+    color: #666f75;
     font-weight: 600;
-    text-transform: uppercase;
+    font-size: 16px;
+    -webkit-user-select: none;
+    user-select: none;
+    height: 50px;
+    border-bottom: 1px solid #d7dde4;
+    max-width: 300px;
+    padding-right: 2rem;
+    text-align: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+  }
+  .data-table td {
+    outline: 0;
+    vertical-align: middle;
+    position: relative;
+    text-align: left;
+    padding-right: 2rem;
+    border-bottom: 1px solid #d7dde4;
+    max-width: 300px;
+    min-height: 20px;
+    font-weight: 100;
+    font-size: 14.5px;
+    height: 48px;
+    color: #666f75;
+    text-align: start;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
   }
   
   .data-table tbody tr {
-    border-bottom: 1px solid #e5e7eb;
+
   }
   
   .data-table tbody tr:hover {
@@ -133,9 +204,20 @@
     height: 16px;
   }
   
-  .total-found {
-    padding: 12px;
-    color: #6b7280;
-    font-size: 0.875rem;
+  .data-table td a {
+    color: #3b82f6;
+    text-decoration: none;
   }
-   
+  
+  .data-table td a:hover {
+    text-decoration: underline;
+  }
+  
+
+  .total_count{
+    display: flex;
+    align-items: start;
+    padding: 2rem;
+    color: #666f75;
+    font-size: 10px;
+  }

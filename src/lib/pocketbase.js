@@ -1,6 +1,6 @@
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase(process.env.REACT_APP_POCKETBASE);
+const pb = new PocketBase("https://pb.dev.industryapps.net/GNJU8");
 
 
 export default pb
