@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react';
+import pb from '../lib/pocketbase';
 // Create a Context
 export const SelectedCollectionContext = createContext();
 
@@ -10,5 +11,21 @@ export const SelectedCollectionProvider = ({ children }) => {
     <SelectedCollectionContext.Provider value={{ selectedCollection, setSelectedCollection }}>
       {children}
     </SelectedCollectionContext.Provider>
+  );
+};
+
+
+
+// Create the context
+export const AuthContext = createContext();
+
+// Create the provider component
+export const AuthProvider = ({ children }) => {
+  const [isAuth, setIsAuth] = useState(pb.authStore.isAdmin);
+
+  return (
+    <AuthContext.Provider value={{ isAuth, setIsAuth }}>
+      {children}
+    </AuthContext.Provider>
   );
 };

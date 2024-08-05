@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import './Auth.css';
 import pb from './lib/pocketbase';
 import useLogout from './hooks/useLogout';
 import useLogin from './hooks/useLogin';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { AuthContext } from './store/SelectedCollectionContext';
 
 export default function Auth() {
   const { register, handleSubmit } = useForm();
@@ -11,15 +13,17 @@ export default function Auth() {
   const { mutate: login, isLoading, error, isError } = useLogin();
   const isLogin = pb.authStore.isValid;
 
-  useEffect(() => {
-    if (error) {
-      console.error('Login Error:', error);
-    }
-  }, [error]);
+  const { isAuth, setIsAuth } = useContext(AuthContext);
+  console.log("this is user loginstatue",isAuth);
+  
+  const navigate = useNavigate()
 
   async function onSubmit(data) {
     login({ email: data.email, password: data.password });
+    setIsAuth(true);  
+    navigate("/");
   }
+
 
   return (
     <div className="login-container">

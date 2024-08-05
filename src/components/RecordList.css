@@ -20,6 +20,7 @@
 
   .header_left svg{
     font-weight: 600;
+    color: #666;
   }
   .header_right{
 
@@ -34,13 +35,13 @@
   }
 
   .collection_title{
-    color: #000;
+    color: #666;
     margin-left: 10px;
   }
   
   .new-record-button {
     padding: .7rem 2rem;
-    background-color: #000;
+    background-color: #e15a2d;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -84,6 +85,12 @@
     padding-left: 15px;
     gap: 8px;
   }
+
+  .data-table input{
+    accent-color: #e15a2d;
+  }
+
+
   .search_icons{
     color: #666f75;
   }
@@ -93,6 +100,30 @@
     background: transparent;
     outline: none;
   }
+
+
+
+  .search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    background-color: #e15a2de3;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px 21px;
+}
+
+.search-button:hover {
+    background-color: #333;
+}
+
+
+
   .table-container {
     display: flex;
     justify-content: start;
@@ -130,13 +161,13 @@
   
   /* Handle */
   .table-container::-webkit-scrollbar-thumb {
-    background: #666f75; 
+    background: #979a9cce; 
     border-radius: 5px;
   }
   
   /* Handle on hover */
   .table-container::-webkit-scrollbar-thumb:hover {
-    background: #666f75; 
+    background: #979a9cce; 
   }
   
   .data-table {
@@ -145,6 +176,7 @@
     border-spacing: 0 8px;
   }
   
+
   .data-table th input{
 
     background: white;
@@ -190,7 +222,10 @@
     text-overflow: ellipsis;
 
   }
-  
+
+  .data-table .Arrow_icon{
+    color: #e15a2d;
+  }
   .data-table tbody tr {
 
   }
@@ -220,4 +255,15 @@
     padding: 2rem;
     color: #666f75;
     font-size: 10px;
+  }
+
+
+  .no-records-found{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#666 ;
+  font-size: 14px;
   }

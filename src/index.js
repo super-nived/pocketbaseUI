@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { SelectedCollectionProvider } from './store/SelectedCollectionContext';
+import { AuthProvider, SelectedCollectionProvider } from './store/SelectedCollectionContext';
 
 const queryClinet = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,7 +12,9 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClinet}>
     <SelectedCollectionProvider>
+    <AuthProvider>
     <App />
+    </AuthProvider>
     </SelectedCollectionProvider>
   </QueryClientProvider>
   </React.StrictMode>

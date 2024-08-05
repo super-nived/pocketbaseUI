@@ -3,6 +3,7 @@ import { authenticate, getAllCollections, getAllRecords } from '../lib/pocketbas
 import './CollectionsList.css';
 import { IoFolderSharp } from "react-icons/io5";
 import { SelectedCollectionContext } from '../store/SelectedCollectionContext';
+import LogoutButton from './LogoutButton';
 
 
 export default function CollectionsList() {
@@ -85,6 +86,12 @@ export default function CollectionsList() {
         </div>
       </div>
 
+         <div className='logout_button_container'>
+         <LogoutButton></LogoutButton>
+       {/*     <button className="new-collection-button ">
+            Logout
+          </button> */}
+          </div> 
     </div>
   );
 }
