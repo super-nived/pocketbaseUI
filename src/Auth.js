@@ -32,19 +32,11 @@ export default function Auth() {
         {isLoading ? (
           <div className="spinner">Loading....</div>
         ) : (
-          isLogin ? (
+          (
             <>
               <div className="image-box mb-6">
                 <img src="https://industryapps.net/images/industryapps_logo.png" alt="PocketBase Logo" className="logo" />
-                <h1 className="title">PocketBase</h1>
-              </div>
-              <button className="logout-button" onClick={logout}>Logout</button>
-            </>
-          ) : (
-            <>
-              <div className="image-box mb-6">
-                <img src="https://industryapps.net/images/industryapps_logo.png" alt="PocketBase Logo" className="logo" />
-                <h1 className="title">PocketBase</h1>
+                <h1 className="title">DataBase</h1>
               </div>
               <h2 className="subtitle">Admin sign in</h2>
               <form className="form" onSubmit={handleSubmit(onSubmit)}>

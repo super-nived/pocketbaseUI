@@ -1,0 +1,32 @@
+.spinner_container{
+    width: 100%;
+    height:30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.spinner {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .spinner::after {
+    content: " ";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 4px solid #e5e7eb; /* Light grey */
+    border-top: 4px solid #e15a2d; /* Orange */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

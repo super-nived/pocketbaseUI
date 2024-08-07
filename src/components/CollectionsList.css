@@ -1,114 +1,136 @@
+.collection_container {
+  position: relative;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  border-right: 2px solid #e5e7eb;
+}
 
-  
-  .collection_container {
-    position: relative;
-    display: flex;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    width:100%;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sidebar-header {
-    padding: 16px;
-    border-bottom: 1px solid #e5e7eb;
-  }
-  
-  .sidebar-header h1 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .sidebar-content {
-    padding: 16px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .search-box-container {
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.2rem 0 ;
-    border-bottom: 1px solid  #edf2f7 ;
-  }
-  
-  .search-box {
-    width: 100%;
-    height: fit-content;
-    /* background-color: #d7dde4; */
-    padding: 5px 20px;
-    border-radius: 5px;
-  }
-  
-  .search-box-container .search-box input {
-    width: 100%;
-    background: none;
-    border: none;
-    outline: none;
-    margin-bottom: 0;
-  }
-  
-  .menu {
-    list-style-type: none;
-    padding: 0;
-    margin-top:1rem;
-  }
-  
-  .menu li {
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    padding: 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: #666f75;
-  }
+.sidebar {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
 
-  .menu li svg{
-    color: #e15a2d;
-  }
-  
-  .menu li.active {
-    background-color: #e15a2d0d;
-  }
-  
-  .menu li:hover {
-    background-color: #e15a2d0d;
-  }
-  
-  .menu li span {
-    margin-left: 8px;
-  }
-  
-  .new-collection-button {
-    width: 100%;
-    padding: 8px;
-    background-color: #e15a2d;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .new-collection-button:hover {
-    background-color: #e15a2dc9;
-  }
-  
-.logout_button_container{
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.sidebar-header img {
+  width: 100%;
+  height: fit-content;
+}
+
+.sidebar-header h1 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.sidebar-content {
+  padding: 16px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-box-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.search-box {
+  width: 100%;
+  height: fit-content;
+  /* background-color: #d7dde4; */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.search-box-container .search-box input {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  margin-bottom: 0;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
+.menu li {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #666f75;
+}
+
+.menu li svg {
+  color: #e15a2d;
+}
+
+.menu li.active {
+  background-color: #f5f6f8;
+}
+
+.menu li:hover {
+  background-color: #f5f6f8;
+}
+
+.menu li span {
+  margin-left: 8px;
+}
+
+.new-collection-button {
+  width: 100%;
+  padding: 8px;
+  background-color: #e15a2d;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.new-collection-button:hover {
+  background-color: #e15a2dc9;
+}
+
+.logout_button_container {
   position: absolute;
   bottom: 1rem;
   padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.spinner {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #666f75;
 }

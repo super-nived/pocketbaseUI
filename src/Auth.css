@@ -1,12 +1,4 @@
-body {
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
 
 .login-container {
     background-color:white;
@@ -124,7 +116,7 @@ input:-internal-autofill-selected{
 
 .login-button {
     width: 100%;
-    background-color: #000000;
+    background-color: #e15a2d;
     color: #ffffff;
     padding: 12px 0;
     border: none;

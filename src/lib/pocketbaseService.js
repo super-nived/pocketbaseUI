@@ -1,6 +1,6 @@
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase('https://pb.dev.industryapps.net/GNJU8/');
 
 export const authenticate = async (email, password) => {
     pb.autoCancellation(false);

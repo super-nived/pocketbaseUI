@@ -1,26 +1,28 @@
 import React, { useContext, useEffect } from 'react';
 import './Home.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDatabase, faUniversity, faAddressCard, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import CollectionsList from '../components/CollectionsList';
 import RecordList from '../components/RecordList';
 import pb from '../lib/pocketbase';
-import { Navigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import { AuthContext } from '../store/SelectedCollectionContext';
+import useLogin from '../hooks/useLogin';
 
 function Home() {
 
-  const isLogin = pb.authStore.isValid;
   const { isAuth, setIsAuth } = useContext(AuthContext);
+  const navigate = useNavigate()
+  const { mutate: login} = useLogin();
 
-  // useEffect(() => {
+  useEffect(() => {
+    login({ email:"abhi-s@industryapps.net", password:"Linux@1994" });
+    if(isAuth){
+      navigate('/')
+    }
+    else{
+      navigate('/login')
+    }
 
-  //   isAuth && <Navigate to="/" />
-  // }, [isLogin]);
-
-console.log(isAuth,"LLLLLL");
-
-
+  }, [isAuth]);
 
   return (
     <div className="container">
