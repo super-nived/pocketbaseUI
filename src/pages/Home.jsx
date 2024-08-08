@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../store/SelectedCollectionContext';
 import useLogin from '../hooks/useLogin';
 import useLogout from '../hooks/useLogout';
+import ErrorMessage from '../components/ErrorMessage';
 
 function Home() {
   const { isAuth, setIsAuth } = useContext(AuthContext);
@@ -31,7 +32,7 @@ function Home() {
           <RecordList />
         </div>
       ) : (
-        <p>not authenticated</p>
+        <ErrorMessage></ErrorMessage>
       )}
     </>
   );

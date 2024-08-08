@@ -1,0 +1,61 @@
+/* ErrorMessage.css */
+.error-message {
+    font-family: Roboto, sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.5s ease-in-out, fadeIn 1s ease-in-out 0.5s;
+  }
+  
+  .error-icon {
+    font-size: 50px;
+    font-weight: bold;
+    color: #856404; /* Dark orange color */
+    animation: shake 0.5s infinite alternate;
+  }
+  
+  .error-text {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #856404; /* Dark orange color */
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes shake {
+    from {
+      transform: rotate(-10deg);
+    }
+    to {
+      transform: rotate(10deg);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translate(-50%, -60%);
+    }
+    to {
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

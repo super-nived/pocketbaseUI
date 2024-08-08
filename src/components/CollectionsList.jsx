@@ -5,6 +5,7 @@ import { IoFolderSharp } from "react-icons/io5";
 import { SelectedCollectionContext } from '../store/SelectedCollectionContext';
 import LogoutButton from './LogoutButton';
 import Spinner from './Spinner';
+import { IoSearchOutline } from "react-icons/io5";
 
 export default function CollectionsList() {
   const [collections, setCollections] = useState([]);
@@ -84,6 +85,7 @@ export default function CollectionsList() {
         </div>
         <div className="sidebar-content">
           <div className="search-box-container">
+          <span className='search_icon'><IoSearchOutline /></span>
             <div className="search-box">
               <input
                 type="text"

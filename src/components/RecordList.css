@@ -19,9 +19,8 @@
 
 .record_list_bottom_container::-webkit-scrollbar {
   width: 5px;
-  height: 5px;
+  height: 0; /* Hide the horizontal scrollbar */
 }
-
 
 .record_list_bottom_container::-webkit-scrollbar-track {
   background: #f1f1f1;
@@ -32,30 +31,6 @@
   background: #979a9cce;
   border-radius: 5px;
 }
-
-
-.record_list_bottom_container::-webkit-scrollbar-thumb:hover {
-  background: #979a9cce;
-}
-
-
-
-.record_list_bottom_container::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-
-
-.record_list_bottom_container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 5px;
-}
-
-.record_list_bottom_container::-webkit-scrollbar-thumb {
-  background: #979a9cce;
-  border-radius: 5px;
-}
-
 
 .record_list_bottom_container::-webkit-scrollbar-thumb:hover {
   background: #979a9cce;
@@ -294,12 +269,14 @@ height:100%;
   left: 0;
   bottom: 0;
   padding: 2rem;
-  color: #666f75;
+  color: #333c48;
   font-size: 10px;
   height: 2rem;
   background: #fff;
 }
 .total_count_P{
+  font-size: 14px;
+  color: #333c48;
   position: absolute;
   left: 0;
   margin-left: 1rem;

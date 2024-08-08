@@ -158,7 +158,7 @@ const RecordList = () => {
                                                     }
                                                     return <td key={originalHeader}>{content}</td>;
                                                 })}
-                                                <td><a className='Arrow_icon' href="#"><FontAwesomeIcon icon={faChevronRight} /></a></td>
+                                                {/* <td><a className='Arrow_icon' href="#"><FontAwesomeIcon icon={faChevronRight} /></a></td> */}
                                             </tr>
                                         ))}
                                     </tbody>
