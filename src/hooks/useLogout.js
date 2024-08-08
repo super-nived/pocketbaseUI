@@ -6,7 +6,9 @@ export default function useLogout(){
     const [dummy, setDummy]  = useState(0)
 
     function logout (){
-        pb.authStore.clear()
+        console.log("lllllllllllllll");
+        
+        pb?.authStore?.clear()
         setDummy(Math.random())
     }
 

@@ -21,11 +21,28 @@ export const getFirstCollection = async (filter) => {
     return await pb.collections.getFirstListItem(filter);
 };
 
+export const getPaginatedRecords = async (collectionName, page, perPage, filterCriteria) => {
+    try {
+        const response = await pb.collection(collectionName).getList(page, perPage, {
+            filter: filterCriteria,
+        });
+        return {
+            items: Array.isArray(response.items) ? response.items : [],
+            totalItems: response.totalItems || 0,
+        };
+    } catch (error) {
+        console.error('Error fetching paginated records:', error);
+        return {
+            items: [],
+            totalItems: 0,
+        };
+    }
+};
+
 export const getAllRecords = async (collectionName) => {
     return await pb.collection(collectionName).getFullList();
 };
 
-// Function to filter records
 export const filterRecords = async (collectionName, filterCriteria) => {
     try {
         const records = await pb.collection(collectionName).getFullList({

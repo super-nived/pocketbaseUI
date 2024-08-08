@@ -9,7 +9,7 @@
 
 .record_list_top_container{
   width: 100%;
-  height: 25vh;
+  height: fit-content;
 }
 
 .record_list_bottom_container{
@@ -83,7 +83,7 @@
 .header_right {}
 
 .header h2 {
-  color: #a0a6ac;
+  color: #b5b7c0;
   font-size: 1.5rem;
   margin: 0;
   font-weight: 400;
@@ -91,7 +91,7 @@
 }
 
 .collection_title {
-  color: #666;
+  color: #333c48;
   margin-left: 10px;
 }
 
@@ -138,6 +138,11 @@
 .data-table{
   padding-bottom: 3rem;
   
+}
+
+.time-part{
+  font-size: 11px;
+  color:#666;
 }
 .data-table input {
   accent-color: #e15a2d;
@@ -219,7 +224,7 @@ height:100%;
 }
 
 .data-table th {
-  color: #666f75;
+  color: #b5b7c0;
   font-weight: 600;
   font-size: 16px;
   user-select: none;
@@ -243,13 +248,17 @@ height:100%;
   max-width: 300px;
   min-height: 20px;
   font-weight: 100;
-  font-size: 14.5px;
+  font-size: 14px;
   height: 48px;
-  color: #666f75;
+  color: #333c48;
   text-align: start;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.time-part{
+  
 }
 
 .data-table .Arrow_icon {
@@ -277,17 +286,23 @@ height:100%;
 }
 
 .total_count {
-  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   position: absolute;
   left: 0;
   bottom: 0;
-  align-items: start;
   padding: 2rem;
   color: #666f75;
   font-size: 10px;
   height: 2rem;
   background: #fff;
+}
+.total_count_P{
+  position: absolute;
+  left: 0;
+  margin-left: 1rem;
 }
 
 .no-records-found {

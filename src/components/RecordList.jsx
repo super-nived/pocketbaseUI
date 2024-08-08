@@ -3,11 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faLink } from '@fortawesome/free-solid-svg-icons';
 import './RecordList.css';
 import { SelectedCollectionContext } from '../store/SelectedCollectionContext';
-import { getAllRecords, filterRecords } from '../lib/pocketbaseService';
+import { getPaginatedRecords } from '../lib/pocketbaseService';
 import { IoSettingsOutline } from "react-icons/io5";
 import { RiRefreshLine } from "react-icons/ri";
 import { IoSearchOutline } from "react-icons/io5";
 import Spinner from './Spinner';  // Make sure to import the Spinner component
+import Pagination from './Pagination';  // Import the custom Pagination component
 
 const RecordList = () => {
     const { selectedCollection } = useContext(SelectedCollectionContext);
@@ -17,17 +18,18 @@ const RecordList = () => {
     const [showSearchButton, setShowSearchButton] = useState(false);
     const [loading, setLoading] = useState(false);  // Loading state
 
-    const fetchRecords = async (criteria = '') => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const recordsPerPage = 20;  // Number of records per page
+
+    const fetchRecords = async (criteria = '', page = 1) => {
         setLoading(true);  // Set loading to true before fetching data
         try {
-            let records;
-            if (criteria) {
-                records = await filterRecords(selectedCollection, criteria);
-            } else {
-                records = await getAllRecords(selectedCollection);
-            }
-            console.log('Fetched records:', records); // Log records for debugging
+            const result = await getPaginatedRecords(selectedCollection, page, recordsPerPage, criteria);
+            const records = Array.isArray(result.items) ? result.items : [];
+            const totalItems = result.totalItems || 0;
             setRecords(records);
+            setTotalPages(Math.ceil(totalItems / recordsPerPage));
 
             if (records.length > 0) {
                 const allHeaders = Object.keys(records[0]).filter(header => header !== 'collectionId' && header !== 'collectionName');
@@ -55,13 +57,15 @@ const RecordList = () => {
             }
         } catch (error) {
             console.error('Error fetching records:', error);
+            setRecords([]);
+            setHeaders([]);
         }
         setLoading(false);  // Set loading to false after fetching data
     };
 
     useEffect(() => {
-        fetchRecords();
-    }, [selectedCollection]);
+        fetchRecords(filterCriteria, currentPage);
+    }, [selectedCollection, currentPage]);
 
     const handleInputChange = (e) => {
         const value = e.target.value;
@@ -71,8 +75,16 @@ const RecordList = () => {
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            fetchRecords(filterCriteria);
+            fetchRecords(filterCriteria, currentPage);
         }
+    };
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
+    const handleRefresh = () => {
+        fetchRecords(filterCriteria, currentPage);
     };
 
     return (
@@ -81,13 +93,12 @@ const RecordList = () => {
                 <div className="header">
                     <div className="header_left">
                         <h2>Collections /<span className='collection_title'>{selectedCollection}</span></h2>
-                        <span><IoSettingsOutline /></span>
-                        <span><RiRefreshLine /></span>
+                        <span onClick={handleRefresh} style={{ cursor: 'pointer' }}><RiRefreshLine /></span>
                     </div>
                     <div className="header_right">
-                        <button className="new-record-button">
-                            + New record
-                        </button>
+                        {/* <button className="new-record-button">
+                             New record
+                        </button> */}
                     </div>
                 </div>
                 <div className="search_box_container">
@@ -100,9 +111,9 @@ const RecordList = () => {
                             onChange={handleInputChange}
                             onKeyDown={handleKeyDown}
                         />
-                        <button 
-                            className={`search-button ${showSearchButton ? 'visible' : 'hidden'}`} 
-                            onClick={() => fetchRecords(filterCriteria)}
+                        <button
+                            className={`search-button ${showSearchButton ? 'visible' : 'hidden'}`}
+                            onClick={() => fetchRecords(filterCriteria, currentPage)}
                         >
                             Search
                         </button>
@@ -156,7 +167,17 @@ const RecordList = () => {
                         )}
                     </div>
                 </div>
-                <div className="total_count"><span>total count: {records.length}</span></div>
+
+                {records.length > 0 && (
+                    <div className="total_count">
+                        <span className='total_count_P'>total count: {records.length}</span>
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={handlePageChange}
+                        />
+                    </div>
+                )}
             </div>
         </div>
     );
